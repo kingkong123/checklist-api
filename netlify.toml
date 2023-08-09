@@ -1,5 +1,0 @@
-[[headers]]
-  # Define which paths this specific [[headers]] block will cover.
-  for = "/netlify/functions/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "https://checklist-ui-1982d5.netlify.app"
