@@ -1,10 +1,12 @@
 import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
 
+import corsHeader from '../shared/cors-header';
+
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   return {
     statusCode: 200,
     headers: {
-      'Access-Control-Allow-Origin': 'https://checklist-ui-1982d5.netlify.app'
+      ...corsHeader()
     },
     body: JSON.stringify({ message: "Hello World" }),
   };
