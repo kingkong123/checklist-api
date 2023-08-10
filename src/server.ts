@@ -16,9 +16,9 @@ const convertToNetlifyEvent = (req: Request): HandlerEvent => ({
   path: req.path,
   headers: {},
   multiValueHeaders: {},
-  queryStringParameters: null,
+  queryStringParameters: <any>req.query || null,
   multiValueQueryStringParameters: null,
-  body: req.body,
+  body: req.body ? JSON.stringify(req.body) : undefined,
   isBase64Encoded: true
 });
 
@@ -27,7 +27,8 @@ app.use(cors());
 
 app.all('*', async (req: Request, res: Response) => {
   try {
-    const { handler } = require(`${__dirname}/./functions${req.url}.ts`);
+    console.log(333, req.url, req.query, req.path);
+    const { handler } = require(`${__dirname}/./functions${req.path}.ts`);
     const { statusCode, headers, body } = await handler(convertToNetlifyEvent(req));
 
     if (headers) {
