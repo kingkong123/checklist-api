@@ -7,8 +7,18 @@ import { ToDoItems } from '../shared/entities/todo-items';
 import corsHeader from '../shared/cors-header';
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
-  const { httpMethod, body } = event;
-  if (httpMethod !== 'OPTIONS' && httpMethod !== 'GET') {
+  const { httpMethod } = event;
+
+  if (httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        ...corsHeader({ allowMethods: 'GET' })
+      }
+    };
+  }
+
+  if (httpMethod !== 'GET') {
     return {
       statusCode: 404,
       headers: {

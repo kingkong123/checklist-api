@@ -8,7 +8,17 @@ import corsHeader from '../shared/cors-header';
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   const { httpMethod, body } = event;
-  if (httpMethod !== 'OPTIONS' && httpMethod !== 'PUT') {
+
+  if (httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        ...corsHeader({ allowMethods: 'PUT' })
+      }
+    };
+  }
+
+  if (httpMethod !== 'PUT') {
     return {
       statusCode: 404,
       headers: {
