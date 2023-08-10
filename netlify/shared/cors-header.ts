@@ -1,3 +1,6 @@
-const header = () => ({ 'Access-Control-Allow-Origin': 'https://checklist-ui-1982d5.netlify.app' })
+const { CORS_ALLOWED_DOMAIN } = process.env;
+
+console.log('Cors header', CORS_ALLOWED_DOMAIN);
+const header = () => ({ 'Access-Control-Allow-Origin': CORS_ALLOWED_DOMAIN });
 
 export default header;
