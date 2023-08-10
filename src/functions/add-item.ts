@@ -29,6 +29,8 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
 
   const dataSource = await getDataSourceAsync();
 
+  console.log('body: ', body);
+
   const toDoItem = new ToDoItems();
   toDoItem.itemName = (body as any).itemName;
 

@@ -27,6 +27,8 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     };
   }
 
+  console.log('body: ', body);
+
   const { id, checked } = (body as any);
 
   const dataSource = await getDataSourceAsync();
