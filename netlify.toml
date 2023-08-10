@@ -1,2 +1,2 @@
 [functions]
-  external_node_modules = [app-root-path, typeorm]
+  external_node_modules = ["app-root-path", "typeorm"]
