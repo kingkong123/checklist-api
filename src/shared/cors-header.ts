@@ -2,12 +2,12 @@ const { CORS_ALLOWED_DOMAIN = '' } = process.env;
 
 const baseResponse = {
   'Access-Control-Allow-Origin': CORS_ALLOWED_DOMAIN,
-  'Access-Control-Allow-Headers': 'Content-Type, Accept'
+  'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 };
 
 console.log('Cors header', CORS_ALLOWED_DOMAIN);
-const header = (options = null) => {
-  const { allowMethods = null } = options;
+const header = (options = { allowMethods: null }) => {
+  const { allowMethods } = options;
 
   if (allowMethods) {
     return {
