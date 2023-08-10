@@ -1,5 +1,4 @@
 import { DataSource } from 'typeorm';
-import 'reflect-metadata'
 
 import { ToDoItems } from './entities/todo-items';
 

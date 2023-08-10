@@ -1,4 +1,5 @@
 import type { Handler, HandlerEvent, HandlerContext } from "@netlify/functions";
+import 'reflect-metadata'
 
 import { getDataSourceAsync } from '../shared/db-datasource';
 import { ToDoItems } from '../shared/entities/todo-items';
