@@ -27,9 +27,9 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     };
   }
 
-  console.log('body: ', body);
+  console.log('body: ', body, typeof body);
 
-  const { id, checked } = (body as any);
+  const { id, checked } = JSON.parse(body);
 
   const dataSource = await getDataSourceAsync();
   const repo = dataSource.getRepository(ToDoItems);
