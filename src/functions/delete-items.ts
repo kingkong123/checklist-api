@@ -8,7 +8,7 @@ import corsHeader from '../shared/cors-header';
 
 const handler: Handler = async (event: HandlerEvent, context: HandlerContext) => {
   const { httpMethod } = event;
-  if (httpMethod !== 'DELETE') {
+  if (httpMethod !== 'OPTIONS' && httpMethod !== 'DELETE') {
     return {
       statusCode: 404,
       headers: {
