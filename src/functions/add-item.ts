@@ -27,16 +27,17 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     };
   }
 
+  const { itemName } = JSON.parse(body);
+
   const dataSource = await getDataSourceAsync();
-
-  console.log('body: ', body, typeof body);
-
-  const toDoItem = new ToDoItems();
-  toDoItem.itemName = (body as any).itemName;
-
   const repo = dataSource.getRepository(ToDoItems);
 
-  await repo.save(toDoItem);
+  if (itemName) {
+    const toDoItem = new ToDoItems();
+    toDoItem.itemName = itemName;
+
+    await repo.save(toDoItem);
+  }
 
   const result = await repo.createQueryBuilder('todo').orderBy('todo.itemName', 'ASC').getMany();
 

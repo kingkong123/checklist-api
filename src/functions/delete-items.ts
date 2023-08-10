@@ -18,7 +18,7 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     };
   }
 
-  if (httpMethod !== 'OPTIONS' && httpMethod !== 'DELETE') {
+  if (httpMethod !== 'DELETE') {
     return {
       statusCode: 404,
       headers: {

@@ -27,8 +27,6 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
     };
   }
 
-  console.log('body: ', body, typeof body);
-
   const { id, checked } = JSON.parse(body);
 
   const dataSource = await getDataSourceAsync();
