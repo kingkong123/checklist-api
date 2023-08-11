@@ -15,7 +15,6 @@ const feature = async ({ search }: GetItems): Promise<TodoItem[]> => {
 
   let result;
   if (search) {
-    console.log(123, search);
     result = await repo.findBy({
       itemName: Like(`%${search}%`)
     });

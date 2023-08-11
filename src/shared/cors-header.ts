@@ -5,7 +5,6 @@ const baseResponse = {
   'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 };
 
-console.log('Cors header', CORS_ALLOWED_DOMAIN);
 const header = (options = { allowMethods: null }) => {
   const { allowMethods } = options;
 

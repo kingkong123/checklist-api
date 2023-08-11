@@ -27,7 +27,6 @@ app.use(cors());
 
 app.all('*', async (req: Request, res: Response) => {
   try {
-    console.log(333, req.url, req.query, req.path);
     const { handler } = require(`${__dirname}/./functions${req.path}.ts`);
     const { statusCode, headers, body } = await handler(convertToNetlifyEvent(req));
 

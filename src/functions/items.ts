@@ -28,7 +28,6 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
 
   switch (httpMethod) {
     case HttpMethods.GET: {
-      console.log('get query: ', event.queryStringParameters);
       const res = await getAsync({ search: event.queryStringParameters.search });
 
       return successResponse(res);
